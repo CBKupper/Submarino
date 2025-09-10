@@ -1,6 +1,6 @@
 ﻿namespace Submarino
 {
-    partial class ControleForm
+    partial class Gerenciador
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ControleForm));
+           // System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ControleForm));
             this.grbInformacoes = new System.Windows.Forms.GroupBox();
             this.btnDesligar = new System.Windows.Forms.Button();
             this.btnLigar = new System.Windows.Forms.Button();
@@ -288,7 +288,7 @@
             this.Controls.Add(this.grbResgatados);
             this.Controls.Add(this.grbTripulantes);
             this.Controls.Add(this.grbInformacoes);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+           // this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ControleForm";
             this.Text = "Gerenciador";
             this.grbInformacoes.ResumeLayout(false);
@@ -325,5 +325,6 @@
         private System.Windows.Forms.GroupBox grbProfundidade;
         private System.Windows.Forms.Button btnAjustarProfundidade;
         private System.Windows.Forms.TextBox txbProfundidade;
+        
     }
 }

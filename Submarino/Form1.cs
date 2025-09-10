@@ -15,6 +15,7 @@ namespace Submarino
         public TelaInicial()
         {
             InitializeComponent();
+            cmbOceanos.Items.AddRange(BibliotecaSubmarino.Submarino.OceanosValidos);
         }
 
         private void btnIniciar_Click(object sender, EventArgs e)
@@ -43,14 +44,28 @@ namespace Submarino
                 int maxResgatados = int.Parse(txbResgatados.Text);
                 string oceanoOrigem = cmbOceanos.Text;
                 double profundidade = double.Parse(txbProfundidade.Text);
+                BibliotecaSubmarino.Submarino submarino1 = new BibliotecaSubmarino.Submarino(maxTripulantes, maxResgatados, oceanoOrigem,0 );
+                // instanciar a janela gerenciador para conseguir chama-la:
+                Gerenciador gerenciador = new Gerenciador(submarino1);
+
+                // esconder a janela:
+                Hide();
+
+                // abrir a janela do gerenciador:
+                gerenciador.ShowDialog();
+
+                // Mostrar novamente a janela:
+                Show();
             }
 
-            string oceano = cmbOceanos.SelectedItem.ToString();
-            Submarino submarino = new Submarino(maxTripulantes, maxResg, oceano, profundidade); 
+           
+
+           
+
+
+
+
             
-            ControleForm controle = new ControleForm(submarino);
-            controle.Show();
-            this.Hide();
 
         }
 

@@ -12,25 +12,38 @@ using System.Windows.Forms;
 namespace Submarino
 {
 
-    public partial class ControleForm : Form
+    public partial class Gerenciador : Form
     {
+        
+        BibliotecaSubmarino.Submarino submarino;
 
-        private Submarino submarino;
-
-        public ControleForm(Submarino sub)
+        public Gerenciador(BibliotecaSubmarino.Submarino submarino)
         {
             InitializeComponent();
-            submarino = sub;
+            //objeto global:
+            this.submarino = submarino;
+
+            // atualizar as informações:
             AtualizarStatus();
+
+            // popular o combobox com os oceanos validos:
+            cmbOceanos.Items.AddRange(BibliotecaSubmarino.Submarino.OceanosValidos);
         }
+
 
         private void AtualizarStatus()
         {
-            grbInformacoes.Text = submarino.Operacional ? "Ligado" : "Desligado";
-            grbOceanos.Text = submarino.OceanoAtual;
-            grbTripulantes.Text = submarino.QtdTripulantes.ToString();
-            grbResgatados.Text = submarino.QtdResgatados.ToString();
-            grbProfundidade.Text = submarino.NivelProfundidade.ToString("F2") + " m";
+            lblTripulantes.Text = $"Tripulantes: {submarino.QtdTripulantes}";
+            lblResgatados.Text = $"Resgatados: {submarino.QtdResgatados}";
+            lblSituacao.Text = $"Situação: {(submarino.Operacional ? "Ligado" : "Desligado")}";
+
+            // Atualizar os botões ligar e desligar:
+            btnDesligar.Enabled = submarino.Operacional;
+            btnLigar.Enabled = !submarino.Operacional;
+
+            // Ativar/desativar o grb de acordo com o status da nave:
+            grbResgatados.Enabled = submarino.Operacional;
+
         }
 
         private void btnLigar_Click(object sender, EventArgs e)

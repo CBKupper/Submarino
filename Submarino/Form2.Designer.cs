@@ -41,7 +41,7 @@
             this.Name = "Form2";
             this.Text = "Form2";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Activated += new System.EventHandler(this.Form2_Activated);
+//            this.Activated += new System.EventHandler(this.Form2_Activated);
             this.ResumeLayout(false);
 
         }
